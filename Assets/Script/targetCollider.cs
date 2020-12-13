@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class targetCollider : MonoBehaviour
+public class targetCollider : DefaultTrackableEventHandler
 {
 	public static targetCollider instance;
 
@@ -22,5 +22,9 @@ public class targetCollider : MonoBehaviour
 		temp.y = Random.Range(0.4f,1f);	
 		temp.z = Random.Range(-2.5f,2.5f);
 		transform.position = new Vector3 (temp.x, temp.y-6.5f, temp.z);			
+	
+		if(DefaultTrackableEventHandler.trueFalse == true){
+			raycastController.instance.playSound(0);
+		}
 	}
 }
